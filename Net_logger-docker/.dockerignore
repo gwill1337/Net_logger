@@ -1,0 +1,10 @@
+*
+
+!net_logger.py
+!default_config.yaml
+!Dockerfile
+
+/logs/
+/net_logger_logs/
+__pycache__/
+*.py[cod]

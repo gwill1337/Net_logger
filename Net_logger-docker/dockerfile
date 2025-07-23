@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+WORKDIR /home
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY net_logger.py default_config.yaml ./
+RUN mkdir -p /home/net_logger_logs
+VOLUME ["/home/net_logger_logs"]
+RUN pip install --no-cache-dir scapy pyyaml
+ENTRYPOINT ["python3", "-u", "net_logger.py"]
+CMD []
