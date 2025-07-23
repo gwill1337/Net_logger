@@ -1,0 +1,27 @@
+# default_config.yaml for IDS
+
+#modules
+real_time: false #<--- show packet in real time
+logs_path:         #<--- path for fast/info logs example: /home/user/Desktop/logs
+raw_path:          #<--- path for raw logs  example: /home/user/Desktop/logs
+raw_log: false     #<--- enable raw logs
+info_log: false    #<--- enable info logs
+host_ip: false #<--- show local/host ip in logs and if turn on realtime aslo in realtime
+ddos: false #<--- this module for ddos/dos
+white_list: false #<--- enable whitelist
+black_wall: false  #<--- enable blackwall
+black_list: false  #<--- enable blacklist
+
+#settings for ddos module
+window_size: 15
+threshold: 850
+alert_cooldown: 5
+whitelist:
+#example
+ #- 192.168.0.15 #<--- put here all your ip's and if other ip will detect in your network you'll get alert
+  -
+blackwall_list:
+  #- 192.168.0.62 <--- this list uses iptables
+
+blacklist_list:
+  #- 192.168.0.24 <--- this list not use iptables its just hides ip's for realtime and logs
