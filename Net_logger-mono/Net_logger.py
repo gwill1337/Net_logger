@@ -7,10 +7,6 @@ import argparse, atexit, signal, sys, subprocess, os  # for better customization
 import socket, threading  # for recognize your host address and for threading
 import time  # for time
 
-
-# default_config_path = "default_config.yaml"
-
-
 def load_config(path):
     with open(path, "r") as f:
         return yaml.safe_load(f) or {}
@@ -22,9 +18,7 @@ modules = {k: False for k in (
 )}
 
 parser = argparse.ArgumentParser(description="IDS")
-    # for name in modules:
-    #     parser.add_argument(f"--{name}", action="store_true",
-    #                         help=f"enable {name}")
+
 parser.add_argument("-W", "--white_list", action="store_true",
                     help="Enable whitelist")
 parser.add_argument("-raw", "--raw_log", action="store_true",
@@ -46,7 +40,7 @@ parser.add_argument("--config", default="default_config.yaml", type=str,
 args = parser.parse_args()
 
 try:
-    cfg_path = args.config  # or default_config_path
+    cfg_path = args.config
     cfg = load_config(cfg_path)
 except FileNotFoundError:
     cfg = {}
@@ -65,24 +59,6 @@ modules = {
         "black_list" : args.blacklist or cfg.get("black_list", False),
         "ddos" : args.ddos or cfg.get("ddos", False)
     }
-
-# for name in modules:
-#     if getattr(args, name, False):
-#         modules[name] = True
-# if args.R:
-#     modules["real_time"] = True
-# if args.W:
-#     modules["white_list"] = True
-# if args.B:
-#     modules["black_wall"] = True
-# if args.raw:
-#     modules["raw_log"] = True
-# if args.I:
-#     modules["info_log"] = True
-# if args.H:
-#     modules["host_ip"] = True
-# if args.blacklist:
-#     modules["black_list"] = True
 
 # json logs
 class JSONFormatter(logging.Formatter):
@@ -197,14 +173,11 @@ def get_proto_name(pkt):
 
 # here all modules from config or if you put argument
 def process_packet(packet):
-    # src = packet[IP].src
-    # dst = packet[IP].dst
 
     if modules["raw_log"] == True:
         try:
             decoded = packet.show(dump=True)
             with open(raw_log_path, "a", encoding="utf-8") as f:
-                # current_time_raw_log = datetime.now().strftime("%H:%M:%S")
                 f.write("---------------------------------------------------")
                 f.write(f"{datetime.now().strftime('%H:%M:%S')}")
                 f.write(decoded + "\n")
@@ -225,8 +198,6 @@ def process_packet(packet):
 
     if modules["info_log"] == True:
         logger.info(f"Packet: {src} --> {dst}| Protocol: {proto_name}")
-    # if modules["real_time"] == True and not in_attack:
-    #     print(f"Packet: {src} -> {dst}| Protocol: {proto_name}")
 
 
     if modules["white_list"] == True:
@@ -253,7 +224,7 @@ def process_packet(packet):
         print(f"Packet: {src} -> {dst}| Protocol: {proto_name}")
 
     now = time.time()
-    if modules["ddos"] == True:  # and in_attack:
+    if modules["ddos"] == True:
 
         # thread counts packets in real time
         with lock:
