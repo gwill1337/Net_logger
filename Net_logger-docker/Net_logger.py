@@ -8,8 +8,6 @@ import socket, threading  # for recognize your host address and for threading
 import time  # for time
 
 
-# default_config_path = "default_config.yaml"
-
 
 def load_config(path):
     with open(path, "r") as f:
@@ -44,7 +42,7 @@ parser.add_argument("--config", default="default_config.yaml", type=str,
 args = parser.parse_args()
 
 try:
-    cfg_path = args.config  # or default_config_path
+    cfg_path = args.config
     cfg = load_config(cfg_path)
 except FileNotFoundError:
     cfg = {}
@@ -227,7 +225,7 @@ def process_packet(packet):
         print(f"Packet: {src} -> {dst}| Protocol: {proto_name}")
 
     now = time.time()
-    if modules["ddos"] == True:  # and in_attack:
+    if modules["ddos"] == True:
 
         # thread counts packets in real time
         with lock:
