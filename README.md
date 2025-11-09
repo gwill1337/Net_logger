@@ -38,8 +38,14 @@ In repasitory we've 3 version
   -W or --white_list  #enable whitelist for all ip's except that in config file.
   -B or --black_wall  #enable the Blackwall with iptables for ip's that in config file.
   --blacklist          #enable blacklist this list will hide ip's from realtime and logs.
-  --ddos              #enable ddos detection.
+  -ddos              #enable ddos detection.
   --config "route"    #enable user's config file.
+```
+
+## Logs
+To view Logs in real time write:
+```bash
+ tail -f <log_name.json>
 ```
 ## Usage/Installation modules version
 1. Create/download/clone all modules from repository in one folder.
