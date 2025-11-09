@@ -13,7 +13,7 @@ In repasitory we've 3 version
 3. Docker mono
 
 ## Usage/Installation mono version
-1. Just create/download/clone "net_logger.py" file and install scapy with pipy if you in venv:
+1. Clone repository and install scapy with pipy if you in venv:
    ``` python
    pip install scapy
    ```
@@ -22,7 +22,7 @@ In repasitory we've 3 version
    sudo apt install python3-scapy
    ```
 
-2. Create/download/clone default_config.yaml, there you've default settings with ddos detect enabled you can off that or configurate your own config file. for this download config.yaml, open with nano or what you want and configurate your own config file, how apply it to logger below with flags.
+2. Clone default_config.yaml, there you've default settings with ddos detect enabled you can off that or configurate your own config file. for this download config.yaml, open with nano or what you want and configurate your own config file, how apply it to logger below with flags.
 3. Run net_logger.py from directory where this file located
    ```
    sudo python3 net_logger.py
@@ -48,9 +48,9 @@ To view Logs in real time write:
  tail -f log_name.json
 ```
 ## Usage/Installation modules version
-1. Create/download/clone all modules from repository in one folder.
-2. Create/download/clone default_config.yaml and/or config.yaml.
-   p.s configs for mono and configs for modules different and all guides included with configs.
+1. Clone modules version from repository in one folder.
+2. Configure default_config.yaml and/or config.yaml.
+   P.S. configs for mono and configs for modules different and all guides included with configs.
 3. Run net_logger.py from directory where this file located.
    ```
    sudo python3 net_logger.py
@@ -58,7 +58,7 @@ To view Logs in real time write:
    P.s flags for modules version the same as for mono.
 
 ## Usage/Installation docker mono version
-1. Create/download/clone "net_logger.py", "dockerfile" and "requirements" from repository.
+1. Clone docker version from repository.
 2. Create docker from directory where this file located.
    ```
    docker build -t net_logger:latest .
@@ -86,16 +86,16 @@ To view Logs in real time write:
    -R  <--- Flags which were mentioned above p.s flags the same as for the other
    ```
 
-## Usege/Installation Telegram alerts bot
+## Usage/Installation Telegram alerts bot
 1. Create venv
    ```
    python3 -m venv venv
    ```
-2. Enter venv
+2. Enter into venv
    ```
    source venv/bin/activate
    ```
-3. Create/download/clone bot from repository to venv
+3. Clone bot from repository to venv
 4. Install aiogram
    ```
    pip install aiogram
