@@ -45,7 +45,7 @@ In repasitory we've 3 version
 ## Logs
 To view Logs in real time write:
 ```bash
- tail -f <log_name.json>
+ tail -f log_name.json
 ```
 ## Usage/Installation modules version
 1. Create/download/clone all modules from repository in one folder.
