@@ -19,9 +19,8 @@ alert_cooldown: 5
 whitelist:
 #example
  #- 192.168.0.15 #<--- put here all your ip's and if other ip will detect in your network you'll get alert
-  -
 blackwall_list:
-  #- 192.168.0.62 <--- this list uses iptables
+ #- 192.168.0.62 <--- this blacklist it's use iptables for dropping ip's.
 
 blacklist_list:
-  #- 192.168.0.24 <--- this list not use iptables its just hides ip's for realtime and logs
+ #- 192.168.0.24 <--- this list not use iptables its just hides ip's for realtime and logs
