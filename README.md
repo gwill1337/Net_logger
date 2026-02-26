@@ -3,7 +3,7 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/scapy)
 
 ## About logger
-This logger logs Network in fast_log (only with alerts), info_log(all packets, if turned on) and raw_log(with raw packets, if turned on) and has detailed settings with default_config.yaml or with users config.yaml files and of course flags. Also logger has ddos/dos detection,whitelist, Blackwall (blacklist with iptables), blacklist (that just hide ip's which in config file), and of course almost all setting may be turned on/off with flags or with config files.
+This logger logs Network in fast_log (only with alerts), info_log(all packets, if turned on) and raw_log(with raw packets, if turned on) and has detailed settings with default_config.yaml or with users config.yaml files and of course flags. Also logger has ddos/dos detection,whitelist, Blackwall (blacklist with iptables), blacklist (that just hide IP's which in config file), and of course almost all setting may be turned on/off with flags or with config files.
 
 
 ## installation ways
